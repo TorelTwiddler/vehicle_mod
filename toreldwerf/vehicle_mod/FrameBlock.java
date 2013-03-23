@@ -2,6 +2,7 @@ package toreldwerf.vehicle_mod;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 
 /**
  * User: toreltwiddler
@@ -24,5 +25,34 @@ public class FrameBlock extends Block {
     @Override
     public String getTextureFile () {
         return CommonProxy.BLOCKS_PNG;
+    }
+
+    public void turnIntoEntity () {
+        /**
+         * This will spawn a new entity of the shape of the blocks.
+         */
+    }
+
+    public boolean isValidStructure () {
+        /**
+         * This will return true if this block and all frame blocks connected
+         * make a structure that can actually work.
+         */
+        return false;
+    }
+
+    public FrameBlock[] getTouchingFrameBlocks () {
+        /**
+         * This gets an array of all of the touching FrameBlocks.
+         */
+        return new FrameBlock[0];
+    }
+
+    public boolean addItem (Item item) {
+        /**
+         * Adds the item to this block. Will return true if
+         * it works.
+         */
+        return false;
     }
 }
