@@ -3,6 +3,7 @@ package toreldwerf.vehicle_mod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.world.World;
 
 /**
  * User: toreltwiddler
@@ -27,13 +28,16 @@ public class FrameBlock extends Block {
         return CommonProxy.BLOCKS_PNG;
     }
 
-    public void turnIntoEntity () {
+    public void turnIntoEntity (World world, int x, int y, int z) {
         /**
          * This will spawn a new entity of the shape of the blocks.
          */
+        if (isValidStructure(world, x, y, z)) {
+            //TODO: Turn the block into an entity here
+        }
     }
 
-    public boolean isValidStructure () {
+    public boolean isValidStructure (World world, int x, int y, int z) {
         /**
          * This will return true if this block and all frame blocks connected
          * make a structure that can actually work.
@@ -41,14 +45,14 @@ public class FrameBlock extends Block {
         return false;
     }
 
-    public FrameBlock[] getTouchingFrameBlocks () {
+    public FrameBlock[] getTouchingFrameBlocks (World world, int x, int y, int z) {
         /**
          * This gets an array of all of the touching FrameBlocks.
          */
         return new FrameBlock[0];
     }
 
-    public boolean addItem (Item item) {
+    public boolean addItem (World world, int x, int y, int z, Item item) {
         /**
          * Adds the item to this block. Will return true if
          * it works.
